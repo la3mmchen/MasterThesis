@@ -1,0 +1,21 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+{{template "generics/riddl_header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <form action="/new" method="POST">
+        <input type="hidden" name="ObjectType" value="pipe"/><br/>
+        <input type="hidden" name="PipeUserUniqueId" value="1"/><br/>
+        <input type="text" name="PipeName" placeholder="Name of pipe"/><br/>
+        <input type="text" name="PipeIdentifier" placeholder="Account"/><br/>
+        <input type="submit" value="Create" />
+      </form>
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

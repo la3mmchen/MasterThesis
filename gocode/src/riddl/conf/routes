@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+module:testrunner
+
+# GETs
+
+# Web Page (uppercases)
+GET     /Pipes                                  Pipe.Pipes
+GET     /pipe/:id/activate                      Pipe.Activate
+GET     /Contacts                               Contact.List
+GET     /contact/:id/add                        Contact.Add
+GET     /pipe/:id/delete                        Pipe.Delete
+GET     /Users                                  User.List
+GET     /New/pipe                               Pipe.New
+GET     /User/logout                            App.UserLogout
+POST    /User/login                             App.UserLogin
+
+# GET Lowercase for API (lowercases; read-only)
+GET     /user/:id                               User.GetUser
+GET     /pipe/:id                               Pipe.GetPipe
+GET     /types/:id                              Object.GetTypes
+
+GET     /                                       App.Index
+
+# POST
+POST 	/new									Object.New
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/*filepath                       Static.Serve("public")
+
+# Catch all
+*       /:controller/:action                    :controller.:action

@@ -1,0 +1,23 @@
+{{set . "title" "Users"}}
+{{template "header.html" .}}
+
+{{template "generics/riddl_header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <ul style="list-style-type:none;">
+        {{if .users}}
+          {{range .users}}
+          <li><a href="/user/{{.UserId}}" style="text-transform: none;">{{.UserName}}</a> (<a href="/contact/{{.UserId}}/add">add as contact</a>)</li>
+          {{end}}
+        {{else}}
+          <li> none </li>
+        {{end}}
+      </ul>
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

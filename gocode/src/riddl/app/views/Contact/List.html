@@ -1,0 +1,26 @@
+{{set . "title" "Contacts"}}
+{{template "header.html" .}}
+
+{{template "generics/riddl_header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <ul style="list-style-type:none;">
+        {{if .s}}
+          {{range .s}}
+          <li>
+            <a href="/user/{{.UserId}}" style="text-transform: none;">{{.UserName}}</a> (<a href="/contact/{{.UserId}}/unfollow">remove from contacts</a>)
+            (last seen @<i> {{.UserLastPipe.PipeName}}</i>)
+          </li>
+          {{end}}
+        {{else}}
+          <li> none </li>
+        {{end}}
+      </ul>
+      {{template "flash.html" .}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

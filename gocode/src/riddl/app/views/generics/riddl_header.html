@@ -1,0 +1,20 @@
+<header class="hero-unit" style="background-color:#A9F16C">
+  <div class="container">
+    <div class="row">
+      <div class="hero-text">
+        <h1><a href="/">riddl.me</a></h1>
+        {{if .GlobalUserSignedIn }}
+          <p>Hej!, <b>{{ .GlobalUserName }}</b> (<a href="/User/logout">logout</a>) </p>
+          <p>
+            <a href="/Pipes">communication</a> (<a href="/New/pipe">add pipe</a>)
+            <br/>
+            <a href="/Contacts">contacts</a> (<a href="/Users">search</a>)
+          </p>
+        {{else}}
+          <p>Hej!</p>
+        {{end}}
+      </div>
+    </div>
+  </div>
+</header>
+</div>

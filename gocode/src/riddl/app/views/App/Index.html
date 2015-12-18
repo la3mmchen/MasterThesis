@@ -1,0 +1,27 @@
+{{set . "title" "Home"}}
+{{template "header.html" .}}
+
+
+{{template "generics/riddl_header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      {{template "flash.html" .}}
+      {{if .GlobalUserSignedIn }}
+      {{else}}
+        <div id="container">
+          <form action="/User/login" id="formLogin" method="POST">
+            <input type="text" name="username" size="19" placeholder="Name" value="{{.flash.username}}" />
+            -
+            <input type="password" placeholder="Password" name="password" size="19"/>
+            <br/>
+            <input type="submit" value="Go" />
+          </form>
+        </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}

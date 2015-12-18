@@ -1,0 +1,30 @@
+{{set . "title" "Pipes"}}
+{{template "header.html" .}}
+
+{{template "generics/riddl_header.html" .}}
+
+<div class="container">
+  <div class="row">
+    <div class="span6">
+      <ul style="list-style-type:none;">
+        {{if .s}}
+          {{range .s}}
+          <li><a href="/pipe/{{.PipeId}}" style="text-transform: uppercase;">{{.PipeName}}</a> - [ <b>{{.PipeState}}</b> / {{.PipeIdentifier}} ] <a href="/pipe/{{.PipeId}}/activate">activate this</a> - <a href="/pipe/{{.PipeId}}/delete">delete</a></li>
+          {{end}}
+        {{else}}
+          <li> no pipes found </li>
+        {{end}}
+      </ul>
+
+      {{template "flash.html" .}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      <a href="/New/pipe"> + add pipe</a>
+    </div>
+  </div>
+</div>
+
+{{template "footer.html" .}}
